@@ -20,7 +20,7 @@ RUN apt-get update \
     && pecl install igbinary \
     && pecl install xdebug-2.9.0 \
     && pecl install apcu \
-    && docker-php-ext-enable redis igbinary xdebug apcu intl
+    && docker-php-ext-enable redis igbinary xdebug apcu
 
 RUN apt-get install unixodbc unixodbc-dev -y \
  && docker-php-ext-configure pdo_odbc --with-pdo-odbc=unixODBC,/usr \
