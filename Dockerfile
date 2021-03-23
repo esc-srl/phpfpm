@@ -55,6 +55,9 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
 
 RUN chmod 777 /etc/odbc.ini
 
+# Devo modificare un open SSL per la connessione API a SAP
+RUN sed -i 's/TLSv1.2/TLSv1/g' /etc/ssl/openssl.cnf
+
 RUN mkdir /app
 WORKDIR /app
 
