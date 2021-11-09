@@ -19,6 +19,10 @@ RUN apt-get update \
     && pecl install apcu \
     && docker-php-ext-enable redis igbinary xdebug apcu
 
+RUN apt-get install unixodbc unixodbc-dev -y
+RUN pecl install sqlsrv-5.9.0
+RUN pecl install pdo_sqlsrv-5.9.0
+
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 ADD /resources/* /resources/
 WORKDIR /resources
